@@ -42,19 +42,22 @@ It is a data engineering pipeline that ingests healthcare claim data from multip
 ## Project Structure
 
 ```claim_resubmission_pipeline/
+├── app.py # FastAPI endpoint
+├── orchestrator.py # Prefect flow simulation
 ├── data/
-│   ├── emr_alpha.csv        # Sample CSV source
-│   ├── emr_beta.json        # Sample JSON source
+│ ├── emr_alpha.csv
+│ ├── emr_beta.json
 ├── pipeline/
-│   ├── __init__.py
-│   ├── schema.py            # Schema normalization helpers
-│   ├── eligibility.py       # Eligibility rules
-│   ├── pipeline.py          # (optional orchestration helpers)
+│ ├── init.py
+│ ├── schema.py # Schema normalization
+│ ├── eligibility.py # Eligibility logic + mock LLM
+│ ├── pipeline.py # ClaimPipeline class
 ├── logs/
-│   └── pipeline.log         # Logs written after each run
-├── resubmission_candidates.json   # Output (generated)
-├── rejected_records.json          # Output (generated)
-├── main.py                  # Entry point for pipeline
+│ ├── pipeline.log
+│ └── failed_records.log # Exported rejected records
+├── resubmission_candidates.json
+├── rejected_records.json
+├── main.py
 ├── requirements.txt
 └── README.md
 └── .gitignore
@@ -100,3 +103,71 @@ OR venv\Scripts\activate    # Windows
     rejected_records.json
 
     * Log execution summary into logs/pipeline.log.
+
+
+## Bonus Features
+
+### 1. Modular Pipeline Class
+
+The core pipeline is encapsulated in `ClaimResubmissionPipeline`:
+
+```
+from pipeline.pipeline import ClaimResubmissionPipeline
+
+pipeline = ClaimResubmissionPipeline()
+summary = pipeline.run()
+pipeline.save_results()
+```
+
+This makes it easy to reuse in scripts, tests, or APIs.
+
+### 2. FastAPI Endpoint
+
+Run:
+
+`uvicorn app:app --reload`
+
+
+Upload claim files and process them dynamically:
+
+```
+curl -X POST "http://127.0.0.1:8000/process" \
+     -F "alpha=@data/emr_alpha.csv" \
+     -F "beta=@data/emr_beta.json"
+
+```
+Response:
+
+```
+{
+  "summary": { "total_claims": 9, "eligible_for_resubmission": 5, ... },
+  "resubmission_candidates": [ ... ]
+}
+
+```
+### 3. Prefect Orchestration Simulation
+
+The project includes orchestrator.py with a Prefect-style flow:
+
+`python orchestrator.py`
+
+
+This demonstrates how the pipeline can be orchestrated in a production-grade workflow manager.
+
+### 4. Mock LLM Classifier
+
+For ambiguous denial reasons (e.g., "incorrect procedure"), the pipeline uses a mock LLM classifier to infer retryable actions:
+
+```
+"incorrect procedure" → "Please review procedure code"
+"form incomplete" → "Please complete missing form fields"
+"not billable" → "Check billable status with insurer"
+```
+
+### 5. Failed Records Export
+
+Rejected claims are saved into:
+
+rejected_records.json (structured format)
+
+logs/failed_records.log (line-by-line JSON for auditing)
