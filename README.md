@@ -64,8 +64,10 @@ It is a data engineering pipeline that ingests healthcare claim data from multip
 
 Clone the repository:
 
-`git clone https://github.com/dukelester/claim_resubmission_pipeline.git`
-`cd claim_resubmission_pipeline`
+```git clone https://github.com/dukelester/claim_resubmission_pipeline.git
+
+cd claim_resubmission_pipeline
+```
 
 
 ### Create and activate a virtual environment:
@@ -86,14 +88,14 @@ OR venv\Scripts\activate    # Windows
 
 ### This will:
 
-    * Load data from `data/emr_alpha.csv` and `data/emr_beta.json`.
+    * Load data from data/emr_alpha.csv and data/emr_beta.json.
 
     * Normalize and process all records.
 
     * Save results into:
 
-    `resubmission_candidates.json`
+    resubmission_candidates.json
 
-    `rejected_records.json`
+    rejected_records.json
 
-    * Log execution summary into `logs/pipeline.log`.
+    * Log execution summary into logs/pipeline.log.
