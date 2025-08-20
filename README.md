@@ -41,7 +41,7 @@ It is a data engineering pipeline that ingests healthcare claim data from multip
 
 ## Project Structure
 
-claim_resubmission_pipeline/
+`claim_resubmission_pipeline/
 ├── data/
 │   ├── emr_alpha.csv        # Sample CSV source
 │   ├── emr_beta.json        # Sample JSON source
@@ -58,26 +58,41 @@ claim_resubmission_pipeline/
 ├── requirements.txt
 └── README.md
 └── .gitignore
-
+`
 
 ## Setup & Installation
 
 Clone the repository:
 
-git clone https://github.com/<your-username>/claim_resubmission_pipeline.git
-cd claim_resubmission_pipeline
+`git clone https://github.com/dukelester/claim_resubmission_pipeline.gitclaim_resubmission_pipeline.git
+cd claim_resubmission_pipeline`
 
 
-Create and activate a virtual environment:
+### Create and activate a virtual environment:
 
-python3 -m venv venv
+`python3 -m venv venv
 source venv/bin/activate      # Mac/Linux
-# OR venv\Scripts\activate    # Windows
+# OR venv\Scripts\activate    # Windows`
 
 
-Install dependencies:
+### Install dependencies:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
-▶️ Running the Pipeline
-python main.py
+## Running the Pipeline
+
+`python main.py`
+
+### This will:
+
+    * Load data from `data/emr_alpha.csv` and `data/emr_beta.json`.
+
+    * Normalize and process all records.
+
+    * Save results into:
+
+    `resubmission_candidates.json`
+
+    `rejected_records.json`
+
+    * Log execution summary into `logs/pipeline.log`.
