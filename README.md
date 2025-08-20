@@ -174,7 +174,8 @@ logs/failed_records.log (line-by-line JSON for auditing)
 
 
 
-##Author
+## Author
 
-Duke Nyamongo
+`Duke Nyamongo`
+
 Humaein AI Full Stack Developer Screening – Case Study 1
