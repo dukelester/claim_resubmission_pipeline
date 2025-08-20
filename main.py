@@ -3,7 +3,7 @@ import logging
 import datetime
 import pandas as pd
 
-
+from pipeline.pipeline import ClaimResubmissionPipeline
 from pipeline.schema import normalize_alpha, normalize_beta
 from pipeline.eligibility import is_resubmittable
 
@@ -81,4 +81,8 @@ def run_pipeline():
 
 
 if __name__ == "__main__":
-    run_pipeline()
+    pipeline = ClaimResubmissionPipeline()
+    summary = pipeline.run()
+    pipeline.save_results()
+    print(json.dumps(summary, indent=2))
+    logging.info("Pipeline Summary: %s ", json.dumps(summary, indent=2))

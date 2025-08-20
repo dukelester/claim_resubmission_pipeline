@@ -82,6 +82,10 @@ class ClaimResubmissionPipeline:
         beta_records = self.load_beta_records()
         all_records = alpha_records + beta_records
 
+        logging.info("Claim Records From alpha:  %s", alpha_records)
+        logging.info("Claim Records From Beta:  %s", beta_records)
+        logging.info("Total loaded claims: %s", len(all_records))
+
         for record in all_records:
             eligible, reason, recommendation = is_resubmittable(record, today)
             if eligible:
