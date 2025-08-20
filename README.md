@@ -64,7 +64,8 @@ It is a data engineering pipeline that ingests healthcare claim data from multip
 
 Clone the repository:
 
-```git clone https://github.com/dukelester/claim_resubmission_pipeline.git
+```
+git clone https://github.com/dukelester/claim_resubmission_pipeline.git
 
 cd claim_resubmission_pipeline
 ```
