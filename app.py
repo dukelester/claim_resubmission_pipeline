@@ -1,6 +1,8 @@
-from fastapi import FastAPI, UploadFile, File
-import pandas as pd
+import os
 import json
+
+from fastapi import FastAPI, UploadFile, File
+
 from pipeline.pipeline import ClaimResubmissionPipeline
 
 app = FastAPI(title="Claim Resubmission API")
@@ -30,3 +32,24 @@ async def process_files(alpha: UploadFile = File(None),
         "pipeline_summary": summary,
         "resubmission_candidates": pipeline.resubmission_candidates
     }
+
+
+@app.get("/summary")
+async def get_summary():
+    """Return the latest saved pipeline summary and candidates."""
+    summary = {}
+    candidates = []
+
+    if os.path.exists("resubmission_candidates.json"):
+        with open("resubmission_candidates.json", "r") as f:
+            candidates = json.load(f)
+
+    if os.path.exists("rejected_records.json"):
+        with open("rejected_records.json", "r") as f:
+            rejected = json.load(f)
+        summary["rejected_records_count"] = len(rejected)
+
+    summary["resubmission_candidates_count"] = len(candidates)
+    summary["resubmission_candidates"] = candidates
+
+    return summary
