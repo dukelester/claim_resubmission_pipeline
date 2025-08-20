@@ -171,3 +171,10 @@ Rejected claims are saved into:
 rejected_records.json (structured format)
 
 logs/failed_records.log (line-by-line JSON for auditing)
+
+
+
+##Author
+
+Duke Nyamongo
+Humaein AI Full Stack Developer Screening – Case Study 1
