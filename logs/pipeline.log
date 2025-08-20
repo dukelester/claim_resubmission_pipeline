@@ -1,0 +1,72 @@
+2025-08-20 23:55:26,438 - INFO - Total loaded claims: 9
+2025-08-20 23:55:26,439 - INFO - From alpha:  5
+2025-08-20 23:55:26,439 - INFO - From Beta:  4
+2025-08-20 23:55:26,439 - INFO - Eligible claims : 4 
+2025-08-20 23:55:26,439 - INFO - Rejected claims : 5
+2025-08-20 23:56:43,814 - INFO - Claim Records From alpha:  5
+2025-08-20 23:56:43,814 - INFO - Claim Records From Beta:  4
+2025-08-20 23:56:43,814 - INFO - Total loaded claims: 9
+2025-08-20 23:56:43,815 - INFO - Eligible claims : 4 
+2025-08-20 23:56:43,815 - INFO - Rejected claims : 5
+2025-08-21 00:00:20,730 - INFO - Claim Records From alpha:  5
+2025-08-21 00:00:20,730 - INFO - Claim Records From Beta:  4
+2025-08-21 00:00:20,730 - INFO - Total loaded claims: 9
+2025-08-21 00:00:20,730 - INFO - Eligible claims : 4
+2025-08-21 00:00:20,730 - INFO - Rejected claims : 5
+2025-08-21 00:00:20,730 - INFO - Exclusion reason Breakdown: {'Authorization expired': 1, 'Unknown reason': 3, 'Incorrect provider type': 1}
+2025-08-21 00:00:56,443 - INFO - Claim Records From alpha:  5
+2025-08-21 00:00:56,443 - INFO - Claim Records From Beta:  4
+2025-08-21 00:00:56,443 - INFO - Total loaded claims: 9
+2025-08-21 00:00:56,443 - INFO - Eligible claims : 4
+2025-08-21 00:00:56,443 - INFO - Rejected claims : 5
+2025-08-21 00:00:56,443 - INFO - Exclusion reason Breakdown Summary: {'Authorization expired': 1, 'Unknown reason': 3, 'Incorrect provider type': 1}
+2025-08-21 01:11:15,869 - INFO - Claim Records From alpha:  [{'claim_id': 'A123', 'patient_id': 'P001', 'procedure_code': 99213, 'denial_reason': 'Missing modifier', 'status': 'denied', 'submitted_at': '2025-07-01', 'source_system': 'alpha'}, {'claim_id': 'A124', 'patient_id': 'P002', 'procedure_code': 99214, 'denial_reason': 'Incorrect NPI', 'status': 'denied', 'submitted_at': '2025-07-10', 'source_system': 'alpha'}, {'claim_id': 'A125', 'patient_id': nan, 'procedure_code': 99215, 'denial_reason': 'Authorization expired', 'status': 'denied', 'submitted_at': '2025-07-05', 'source_system': 'alpha'}, {'claim_id': 'A126', 'patient_id': 'P003', 'procedure_code': 99381, 'denial_reason': nan, 'status': 'approved', 'submitted_at': '2025-07-15', 'source_system': 'alpha'}, {'claim_id': 'A127', 'patient_id': 'P004', 'procedure_code': 99401, 'denial_reason': 'Prior auth required', 'status': 'denied', 'submitted_at': '2025-07-20', 'source_system': 'alpha'}]
+2025-08-21 01:11:15,870 - INFO - Claim Records From Beta:  [{'claim_id': 'B987', 'patient_id': 'P010', 'procedure_code': '99213', 'denial_reason': 'Incorrect provider type', 'status': 'denied', 'submitted_at': '2025-07-03', 'source_system': 'beta'}, {'claim_id': 'B988', 'patient_id': 'P011', 'procedure_code': '99214', 'denial_reason': 'Missing modifier', 'status': 'denied', 'submitted_at': '2025-07-09', 'source_system': 'beta'}, {'claim_id': 'B989', 'patient_id': 'P012', 'procedure_code': '99215', 'denial_reason': None, 'status': 'approved', 'submitted_at': '2025-07-10', 'source_system': 'beta'}, {'claim_id': 'B990', 'patient_id': None, 'procedure_code': '99401', 'denial_reason': 'incorrect procedure', 'status': 'denied', 'submitted_at': '2025-07-01', 'source_system': 'beta'}]
+2025-08-21 01:11:15,870 - INFO - Total loaded claims: 9
+2025-08-21 01:11:15,870 - INFO - Results saved successfully.
+2025-08-21 01:11:15,870 - INFO - Pipeline Summary: {
+  "total_claims": 9,
+  "from_alpha": 5,
+  "from_beta": 4,
+  "eligible_for_resubmission": 4,
+  "excluded": 5,
+  "excluded_breakdown": {
+    "Authorization expired": 1,
+    "Unknown reason": 3,
+    "Incorrect provider type": 1
+  }
+} 
+2025-08-21 01:13:08,380 - INFO - Total Claim Records From alpha:  5
+2025-08-21 01:13:08,380 - INFO - Total Claim Records From Beta:  4
+2025-08-21 01:13:08,380 - INFO - Total loaded claims: 9
+2025-08-21 01:13:08,381 - INFO - Results saved successfully.
+2025-08-21 01:13:08,381 - INFO - Pipeline Summary: {
+  "total_claims": 9,
+  "from_alpha": 5,
+  "from_beta": 4,
+  "eligible_for_resubmission": 4,
+  "excluded": 5,
+  "excluded_breakdown": {
+    "Authorization expired": 1,
+    "Unknown reason": 3,
+    "Incorrect provider type": 1
+  }
+} 
+2025-08-21 01:15:25,217 - INFO - Total Claim Records From alpha:  5
+2025-08-21 01:15:25,217 - INFO - Total Claim Records From Beta:  4
+2025-08-21 01:15:25,217 - INFO - Total loaded claims: 9
+2025-08-21 01:15:25,217 - INFO - Total Eligible claims : 4
+2025-08-21 01:15:25,217 - INFO - Total Rejected claims : 5
+2025-08-21 01:15:25,218 - INFO - Results saved successfully.
+2025-08-21 01:15:25,218 - INFO - Pipeline Summary: {
+  "total_claims": 9,
+  "from_alpha": 5,
+  "from_beta": 4,
+  "eligible_for_resubmission": 4,
+  "excluded": 5,
+  "excluded_breakdown": {
+    "Authorization expired": 1,
+    "Unknown reason": 3,
+    "Incorrect provider type": 1
+  }
+} 
