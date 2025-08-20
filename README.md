@@ -5,7 +5,7 @@ It is a data engineering pipeline that ingests healthcare claim data from multip
 
 ---
 
-## 📌 Features
+## Features
 - Ingests **CSV** (Alpha source) and **JSON** (Beta source) claims data.
 - Normalizes all records into a **unified schema**:
   ```json

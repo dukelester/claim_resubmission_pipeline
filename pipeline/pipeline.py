@@ -131,4 +131,8 @@ class ClaimResubmissionPipeline:
         with open("rejected_records.json", "w", encoding="utf-8") as f:
             json.dump(self.rejected_records, f, indent=2)
 
+        with open("logs/failed_records.log", "w", encoding="utf-8") as f:
+            for rec in self.rejected_records:
+                f.write(json.dumps(rec) + "\n")
+
         logging.info("Results saved successfully.")
