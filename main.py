@@ -10,12 +10,6 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# The Log summary
-
-# logging.info("Eligible claims : %s", len(resubmission_candidates))
-# logging.info("Rejected claims : %s", len(rejected_records))
-# logging.info("Exclusion reason Breakdown Summary: %s", exclusion_reasons)
-
 
 if __name__ == "__main__":
     pipeline = ClaimResubmissionPipeline()

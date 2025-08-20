@@ -82,8 +82,8 @@ class ClaimResubmissionPipeline:
         beta_records = self.load_beta_records()
         all_records = alpha_records + beta_records
 
-        logging.info("Claim Records From alpha:  %s", alpha_records)
-        logging.info("Claim Records From Beta:  %s", beta_records)
+        logging.info("Total Claim Records From alpha:  %s", len(alpha_records))
+        logging.info("Total Claim Records From Beta:  %s", len(beta_records))
         logging.info("Total loaded claims: %s", len(all_records))
 
         for record in all_records:
@@ -100,6 +100,10 @@ class ClaimResubmissionPipeline:
                 reason_key = reason or "Unknown reason"
                 self.exclusion_reasons[reason_key] = (
                     self.exclusion_reasons.get(reason_key, 0) + 1)
+
+        logging.info("Total Eligible claims : %s", len(
+            self.resubmission_candidates))
+        logging.info("Total Rejected claims : %s", len(self.rejected_records))
 
         return {
             "total_claims": len(all_records),
