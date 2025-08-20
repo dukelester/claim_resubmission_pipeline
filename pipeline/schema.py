@@ -1,7 +1,7 @@
 import datetime
 
 
-def normalize_alpha(record):
+def normalize_alpha_records(record):
     """Normalize CSV record to a unified schema.
     """
     return {
@@ -16,7 +16,7 @@ def normalize_alpha(record):
     }
 
 
-def normalize_beta(record):
+def normalize_beta_records(record):
     """Normalize JSON record to unified schema."""
     return {
         "claim_id": record.get("id"),
